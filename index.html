@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript HTML5 Tip Calculator Application</title>
+<link rel="stylesheet" href="style.css">
+<script>
+function tipCalculate(slider,bill){
+    var tip = document.getElementById('tip');
+    var slideval = document.getElementById('slideval');
+    var bill = document.getElementById(bill).value;
+    var prcnt = slider * .01;
+    tip.innerHTML = "$"+(bill * prcnt).toFixed(2);
+    slideval.innerHTML = slider+"%";
+}
+</script>
+</head>
+<body>
+    <div class="calculator">
+<h2 id="head">Tip Calculator</h2>
+Enter the bill amount for your meal: $ 
+<input type="text" id="bill"><br><br>
+Tip Percentage: 
+<input type="range" min="10" max="50" value="0" step="5" oninput="tipCalculate(this.value,'bill')" style="width:400px;">
+<span id="slideval">0%</span>
+<h2>Tip to leave = <span id="tip"></span></h2>
+    </div>
+</body>
+</html>
